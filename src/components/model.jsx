@@ -4,6 +4,7 @@ import { Color } from "three";
 import { useRef } from "react";
 import portalVertexShader from "@/shaders/portal/vertex.glsl";
 import portalFragmentShader from "@/shaders/portal/fragment.glsl";
+import { DoubleSide } from "three";
 
 const PortalMaterial = shaderMaterial(
   {
@@ -32,7 +33,7 @@ export default function Model() {
   return (
     <>
       <mesh geometry={nodes.baked.geometry}>
-        <meshBasicMaterial map={bakedTexture} />
+        <meshBasicMaterial map={bakedTexture} side={DoubleSide} />
       </mesh>
 
       <mesh
